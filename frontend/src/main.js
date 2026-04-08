@@ -17,4 +17,15 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 app.use(pinia)
 app.use(router)
 app.use(ElementPlus)
+
+app.config.errorHandler = (err, vm, info) => {
+  console.error('Global error:', err)
+  console.error('Error info:', info)
+}
+
+app.config.warnHandler = (msg, vm, trace) => {
+  console.warn('Warning:', msg)
+  console.warn('Trace:', trace)
+}
+
 app.mount('#app')
